@@ -3,15 +3,16 @@ import './WeatherGrid.css'
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, } from "@mui/material"
 import useGetWeather from '../hooks/useGetWeather'
 
+
 const WeatherGrid = () => {
 
-    const { weather, isError, dataGrid } = useGetWeather()
+    const {weather, isError, dataGrid, getWeather} = useGetWeather()
 
     if (isError) {
         return (
             <div className='button-container'>
                 <p>Ocorreu um erro, tente novamente</p>
-                <button variant='outlined' onClick={weather}>Tentar novamente</button>
+                <button variant='outlined' onClick={getWeather}>Tentar novamente</button>
 
             </div>
         )
