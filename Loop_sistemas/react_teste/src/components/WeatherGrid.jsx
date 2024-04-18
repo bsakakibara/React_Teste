@@ -1,17 +1,17 @@
 import React from 'react'
 import './WeatherGrid.css'
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, } from "@mui/material"
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, } from "@mui/material"
 import useGetWeather from '../hooks/useGetWeather'
 
 const WeatherGrid = () => {
 
-    const {weather, isError, dataGrid} = useGetWeather()
+    const { weather, isError, dataGrid } = useGetWeather()
 
     if (isError) {
         return (
-            <div>
+            <div className='button-container'>
                 <p>Ocorreu um erro, tente novamente</p>
-                <Button variant='outlined' onClick={getWeather}>Tentar novamente</Button>
+                <button variant='outlined' onClick={weather}>Tentar novamente</button>
 
             </div>
         )
@@ -20,7 +20,7 @@ const WeatherGrid = () => {
         <>
             <main>
                 <aside>
-                    <Typography>{weather.city}</Typography>
+                    <h1>{weather.city}</h1>
                     <p>{weather.temp}°C, {weather.description}</p>
                     <img src={`https://assets.hgbrasil.com/weather/icons/conditions/${weather.condition_slug}.svg`} alt="icon weather" />
                     <p>{weather.date}</p>

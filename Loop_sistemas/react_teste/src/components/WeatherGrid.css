@@ -43,3 +43,40 @@ section {
     padding-top: 2rem;
     border-radius: 25px;   
 }
+
+.button-container{
+    max-width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1.5rem;
+    padding-top: 3rem;
+    border-radius: 25px;
+}
+
+.button-container p{
+    background-color: #1312122b;
+    margin-top: 3rem;
+    padding: 1rem .8rem;
+    border-radius: 1rem;
+}
+
+button{
+    background-color: #1312122b;
+    margin-top: 3rem;
+    padding: 1rem .8rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #0000002b;
+}
+
+@media(max-width: 1220px){
+
+    main{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
