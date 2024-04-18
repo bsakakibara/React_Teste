@@ -21,7 +21,7 @@ const useGetWeather = () => {
                 if (index === 0) return { ...item, comparative: '---' }
                 return {
                     ...item,
-                    comparative: response.data.results.forecast[index - 1].max > item.max ? 'Diminuiu' : 'umentou',
+                    comparative: response.data.results.forecast[index - 1].max > item.max ? 'Diminuiu' : 'Aumentou',
                 }
             })
 
