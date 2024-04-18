@@ -4,7 +4,7 @@ import './index.css'
 import './App.css'
 import api from './axios/api'
 
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material"
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, } from "@mui/material"
 
 
 function App() {
@@ -13,7 +13,9 @@ function App() {
 
   const [isError, setIsError] = useState(false)
 
+
   const getWeather = async () => {
+
 
     try {
       const response = await api.get('weather', {
@@ -50,38 +52,41 @@ function App() {
     )
   }
 
-
   return (
     <>
       <main>
         <aside>
           <h1>{weather.city}</h1>
-          <p>{weather.temp}, {weather.description}</p>
+          <p>{weather.temp}°C, {weather.description}</p>
+          <img src={`https://assets.hgbrasil.com/weather/icons/conditions/${weather.condition_slug}.svg`} alt="icon weather" />
+          <p>{weather.date}</p>
         </aside>
         <section>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Data</TableCell>
-                <TableCell align="right">Dia da semana</TableCell>
-                <TableCell align="right">Temperatura</TableCell>
-                <TableCell align="right">Clima</TableCell>
-                <TableCell align="right">Comparativo</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {dataGrid.map((item) => (
-                <TableRow key={item.date}>
-
-                  <TableCell align="right">{item.date}</TableCell>
-                  <TableCell align="right">{item.weekday}</TableCell>
-                  <TableCell align="right">{item.min} - {item.max}</TableCell>
-                  <TableCell align="right">{item.description}</TableCell>
-                  <TableCell align="right">{item.condition}</TableCell>
+          <TableContainer>
+            <Table >
+              <TableHead>
+                <TableRow>
+                  <TableCell align="center">Data</TableCell>
+                  <TableCell align="center">Dia da semana</TableCell>
+                  <TableCell align="center">Temperatura </TableCell>
+                  <TableCell align="center">Clima</TableCell>
+                  <TableCell align="center">Comparativo</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHead>
+              <TableBody>
+                {dataGrid.map((item) => (
+                  <TableRow key={item.date}>
+
+                    <TableCell align="center">{item.date}</TableCell>
+                    <TableCell align="center">{item.weekday}</TableCell>
+                    <TableCell align="center">{item.min}°C - {item.max}°C</TableCell>
+                    <TableCell align="center">{item.description}</TableCell>
+                    <TableCell align="center">{item.condition}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </section>
       </main>
 
