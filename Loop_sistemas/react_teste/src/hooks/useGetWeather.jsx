@@ -13,7 +13,7 @@ const useGetWeather = () => {
 
         try {
             const response = await api.get('weather', {
-                params: { woeid: '457398', format: 'json-cors' },
+                params: { woeid: '457398', format: 'json-cors',  key: ' 66710766'},
             })
             setWeather(response.data.results)
 
